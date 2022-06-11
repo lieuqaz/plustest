@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:logger/logger.dart';
 import 'package:plustest/form_field_widget.dart';
 import 'package:plustest/logging.dart';
 import 'package:plustest/plus.dart';
@@ -35,15 +34,6 @@ class _MyHomePageState extends State<MyHomePage> {
   GlobalKey<FormState> globalKey = GlobalKey<FormState>();
   String result = '';
   final log = logger;
-  void plus() {
-    if (globalKey.currentState!.validate()) {
-      var plus = Plus(number1: number1.text, number2: number2.text);
-      plus.plus();
-      setState(() {
-        result = plus.getResult;
-      });
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -102,7 +92,14 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: const SizedBox(
                       width: 100, child: Center(child: Text('PLUS'))),
                   onPressed: () {
-                    plus();
+                    if (globalKey.currentState!.validate()) {
+                      var plus =
+                          Plus(number1: number1.text, number2: number2.text);
+                      plus.plus();
+                      setState(() {
+                        result = plus.getResult;
+                      });
+                    }
                   },
                 )
               ],

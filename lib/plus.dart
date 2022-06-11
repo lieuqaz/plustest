@@ -1,4 +1,4 @@
-import 'package:logger/logger.dart';
+
 import 'package:plustest/logging.dart';
 
 class Plus {
@@ -16,8 +16,8 @@ class Plus {
     if (number1.length < number2.length) {
       number2 = [number1, number1 = number2][0];
     }
-    log.i('First Number: ${number1}');
-    log.i('Second Number: ${number2}');
+    log.i('First Number: $number1');
+    log.i('Second Number: $number2');
     num1 = number1.split('');
     num2 = number2.split('');
 
